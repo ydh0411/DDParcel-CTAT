@@ -1,0 +1,17 @@
+{
+  "data_dir": "D:\\codex-test\\DDParcel-CTAT\\testdata\\HCP-100337-b1000",
+  "exp_dir": ".\\experiments\\2026-07-09_single-subject-ctat",
+  "iterations": 60,
+  "max_slices": 128,
+  "batch_size": 1,
+  "embed_dim": 48,
+  "num_heads": 6,
+  "window_size": 8,
+  "lr": 0.0001,
+  "weight_decay": 0.01,
+  "seed": 42,
+  "device": "cuda",
+  "log_every": 5,
+  "device_resolved": "cuda",
+  "purpose": "single-subject engineering smoke test; not paper evidence"
+}

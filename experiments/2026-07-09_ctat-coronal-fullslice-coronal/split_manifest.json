@@ -1,0 +1,11 @@
+{
+  "n_subjects_total": 1,
+  "n_train_subjects": 1,
+  "n_val_subjects": 0,
+  "train_subjects": [
+    "HCP-100337-b1000"
+  ],
+  "val_subjects": [],
+  "seed": 42,
+  "val_split": 0.0
+}

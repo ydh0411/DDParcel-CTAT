@@ -191,7 +191,7 @@ def run_network(img_filename, orig_data, prediction_probability, plane, ckpts, p
     # 构建 DataLoader：每个样本是一个 2D 切片，
     # 但通道是「多模态 × 厚切片(7)」拼接结果。
     test_dataset = OrigDataThickSlices_Fused_Input(img_filename, orig_data, plane=plane,
-                                                   transforms=transforms.Compose(ToTensorTest()))
+                                                   transforms=transforms.Compose([ToTensorTest()]))
     # shuffle=False：推理时切片顺序必须保持不变，否则无法拼回 3D
     test_data_loader = DataLoader(dataset=test_dataset, shuffle=False, batch_size=params_model["batch_size"])
     total_batches = len(test_data_loader)

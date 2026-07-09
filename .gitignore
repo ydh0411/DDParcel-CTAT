@@ -162,7 +162,12 @@ cython_debug/
 # Project-local large artifacts / datasets
 .DS_Store
 .vscode/
+data/
+runs/
+logs/
 testdata/
 weights/
 *.nii
 *.nii.gz
+*.hdf5
+*.pkl

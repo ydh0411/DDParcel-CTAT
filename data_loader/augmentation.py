@@ -127,7 +127,8 @@ class AugmentationPadImage(object):
             self.pad_size_mask = ((pad_size, pad_size), (pad_size, pad_size))
 
         else:
-            self.pad_size = pad_size
+            self.pad_size_image = tuple(pad_size) + ((0, 0),)
+            self.pad_size_mask = tuple(pad_size)
 
         self.pad_type = pad_type
 

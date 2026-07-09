@@ -65,12 +65,19 @@ def subject_level_split(dataset, val_split=0.1, seed=42):
     All slices belonging to the same subject ID stay in the same split.
     Saves a split manifest to the experiment directory for reproducibility.
     """
-    subjects = dataset.get_subject_names()
+    subjects = [
+        s.decode('utf-8') if isinstance(s, bytes) else str(s)
+        for s in dataset.get_subject_names()
+    ]
     unique_subjects = sorted(set(subjects))
     rng = np.random.RandomState(seed)
     rng.shuffle(unique_subjects)
 
-    n_val = max(1, int(len(unique_subjects) * val_split))
+    if val_split <= 0 or len(unique_subjects) == 1:
+        n_val = 0
+    else:
+        n_val = max(1, int(len(unique_subjects) * val_split))
+        n_val = min(n_val, len(unique_subjects) - 1)
     n_train = len(unique_subjects) - n_val
     train_subjects = set(unique_subjects[:n_train])
     val_subjects = set(unique_subjects[n_train:])
@@ -81,6 +88,9 @@ def subject_level_split(dataset, val_split=0.1, seed=42):
     print(f"Subject-level split: {len(unique_subjects)} subjects "
           f"-> {n_train} train ({len(train_idx)} slices) + "
           f"{n_val} val ({len(val_idx)} slices)")
+
+    if not train_idx:
+        raise ValueError("Subject-level split produced an empty training set")
 
     manifest = {
         'n_subjects_total': len(unique_subjects),
@@ -116,6 +126,13 @@ def main():
     parser.add_argument('--device', default='auto')
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--val_split', type=float, default=0.1)
+    parser.add_argument('--num_workers', type=int, default=4)
+    parser.add_argument(
+        '--max_train_slices',
+        type=int,
+        default=None,
+        help='Optional cap for quick smoke tests; leave unset for full training.',
+    )
     args = parser.parse_args()
 
     if args.device == 'auto':
@@ -139,6 +156,12 @@ def main():
     full_dataset = build_dataset(args.hdf5_dir, args.view)
     train_idx, val_idx, split_manifest = subject_level_split(
         full_dataset, args.val_split, args.seed)
+    if args.max_train_slices is not None:
+        train_idx = train_idx[:args.max_train_slices]
+        val_idx = val_idx[:args.max_train_slices] if val_idx else val_idx
+        split_manifest['max_train_slices'] = args.max_train_slices
+        split_manifest['n_train_slices_used'] = len(train_idx)
+        split_manifest['n_val_slices_used'] = len(val_idx)
 
     exp_dir = f"{args.exp_dir}-{args.view}"
     os.makedirs(exp_dir, exist_ok=True)
@@ -147,10 +170,12 @@ def main():
 
     train_loader = DataLoader(Subset(full_dataset, train_idx),
                               batch_size=args.batch_size, shuffle=True,
-                              num_workers=4, pin_memory=True)
-    val_loader = DataLoader(Subset(full_dataset, val_idx),
-                            batch_size=args.batch_size, shuffle=False,
-                            num_workers=4, pin_memory=True)
+                              num_workers=args.num_workers, pin_memory=True)
+    val_loader = None
+    if val_idx:
+        val_loader = DataLoader(Subset(full_dataset, val_idx),
+                                batch_size=args.batch_size, shuffle=False,
+                                num_workers=args.num_workers, pin_memory=True)
 
     model = CTAT(
         num_classes=args.num_classes,

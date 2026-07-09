@@ -1,0 +1,10 @@
+{
+  "initial_loss": 4.789912700653076,
+  "final_loss": 3.440680742263794,
+  "loss_change_percent": 28.168195178282108,
+  "iterations": 60,
+  "num_classes": 102,
+  "num_slices": 128,
+  "num_parameters": 26873753,
+  "elapsed_seconds": 558.9932291507721
+}
