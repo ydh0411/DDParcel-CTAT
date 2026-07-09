@@ -214,3 +214,19 @@
 - Verification:
   - Confirmed `final_model.pkl` exists with size `123,019,849` bytes.
   - Confirmed `split_manifest.json` records `n_subjects_total: 1`, `n_train_subjects: 1`, and `val_split: 0.0`.
+
+### Git Upload
+- Staged and committed necessary code, workflow memory, and lightweight experiment records.
+- Excluded generated data and large artifacts from Git via `.gitignore`:
+  - `data/`
+  - `runs/`
+  - `logs/`
+  - `*.hdf5`
+  - `*.pkl`
+- Verification before upload:
+  - `conda run -n med_ai_310 python .\scripts\run_ctat_core_tests.py` -> `passed 8`
+  - `conda run -n med_ai_310 python .\scripts\create_demo_hdf5_train.py --help` -> CLI loaded
+  - `conda run -n med_ai_310 python .\scripts\train_ctat.py --help` -> CLI loaded with `--num_workers` and `--max_train_slices`
+- Commit pushed to GitHub:
+  - `299aad6 chore: record CTAT smoke training workflow`
+  - Remote: `origin/main`
