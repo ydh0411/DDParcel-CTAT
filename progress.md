@@ -230,3 +230,54 @@
 - Commit pushed to GitHub:
   - `299aad6 chore: record CTAT smoke training workflow`
   - Remote: `origin/main`
+
+## Session: 2026-07-10
+
+### Literature Learning Notes and PDF Download
+- User clarified the goal is a learning-oriented paper reading document, not a paper-writing related work section.
+- Added `scripts/download_literature_pdfs.py` to download open-access PDFs for the DDParcel-CTAT learning bibliography.
+- Added `literature/pdfs/` to `.gitignore` so downloaded PDFs are kept local and not committed.
+- Downloaded 14 open PDFs into `literature/pdfs/`:
+  - U-Net
+  - V-Net
+  - Deep learning in medical image analysis survey
+  - DenseNet
+  - Maxout Networks
+  - QuickNAT
+  - FastSurfer
+  - Attention Is All You Need
+  - Vision Transformer
+  - Swin Transformer
+  - TransUNet
+  - UNETR
+  - Sparsemax
+  - Entmax / Sparse sequence-to-sequence models
+- Created `literature/download_manifest.md` and `literature/download_manifest.json` to record downloaded PDFs and reference-only DOI/project links.
+- Created `notes/literature_learning_guide.md`, a Chinese learning document with key English terms, ordered by:
+  - DTI basics
+  - FreeSurfer / atlas labels
+  - medical image segmentation foundations
+  - FastSurfer / DDParcel
+  - Transformer and CTAT-related token fusion
+  - sparse attention
+  - dataset background
+- Verification:
+  - `Get-ChildItem .\literature\pdfs` showed 14 PDF files with nonzero sizes.
+  - `notes/literature_learning_guide.md` exists with length `41,694` bytes.
+
+### Coronal HDF5 128-Slice 3-Epoch Training
+- User ran:
+  - `python .\scripts\train_ctat.py --hdf5_dir .\data\hdf5_train --view coronal --num_classes 102 --embed_dim 48 --epochs 3 --batch_size 1 --exp_dir .\experiments\2026-07-10_ctat-coronal-128slice-3epoch --device cuda --val_split 0 --num_workers 0 --max_train_slices 128`
+- Result:
+  - Loader read all four HDF5 modality files.
+  - Subject split: `1` train subject, `0` validation subjects.
+  - Training used `128` slices.
+  - Epoch losses:
+    - Epoch 1: `3.9417`
+    - Epoch 2: `3.6869`
+    - Epoch 3: `3.5931`
+  - Saved `experiments/2026-07-10_ctat-coronal-128slice-3epoch-coronal/final_model.pkl`.
+- Verification:
+  - Confirmed `final_model.pkl` exists with size `123,019,849` bytes.
+  - Confirmed `split_manifest.json` records `max_train_slices: 128` and `n_train_slices_used: 128`.
+  - No Python training process remained after completion.

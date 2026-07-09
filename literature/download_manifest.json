@@ -1,0 +1,164 @@
+{
+  "downloaded_or_attempted": [
+    {
+      "id": "07_unet_2015",
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "url": "https://arxiv.org/pdf/1505.04597",
+      "file": "literature\\pdfs\\07_unet_2015.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "08_vnet_2016",
+      "title": "V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation",
+      "url": "https://arxiv.org/pdf/1606.04797",
+      "file": "literature\\pdfs\\08_vnet_2016.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "09_litjens_survey_2017",
+      "title": "A survey on deep learning in medical image analysis",
+      "url": "https://arxiv.org/pdf/1702.05747",
+      "file": "literature\\pdfs\\09_litjens_survey_2017.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "10_densenet_2017",
+      "title": "Densely Connected Convolutional Networks",
+      "url": "https://arxiv.org/pdf/1608.06993",
+      "file": "literature\\pdfs\\10_densenet_2017.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "11_maxout_2013",
+      "title": "Maxout Networks",
+      "url": "https://arxiv.org/pdf/1302.4389",
+      "file": "literature\\pdfs\\11_maxout_2013.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "12_quicknat_2019",
+      "title": "QuickNAT: A fully convolutional network for quick and accurate segmentation of neuroanatomy",
+      "url": "https://arxiv.org/pdf/1801.04161",
+      "file": "literature\\pdfs\\12_quicknat_2019.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "13_fastsurfer_2020",
+      "title": "FastSurfer: A fast and accurate deep learning based neuroimaging pipeline",
+      "url": "https://arxiv.org/pdf/1910.03866",
+      "file": "literature\\pdfs\\13_fastsurfer_2020.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "15_attention_2017",
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/pdf/1706.03762",
+      "file": "literature\\pdfs\\15_attention_2017.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "16_vit_2020",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "url": "https://arxiv.org/pdf/2010.11929",
+      "file": "literature\\pdfs\\16_vit_2020.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "17_swin_2021",
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+      "url": "https://arxiv.org/pdf/2103.14030",
+      "file": "literature\\pdfs\\17_swin_2021.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "18_transunet_2021",
+      "title": "TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation",
+      "url": "https://arxiv.org/pdf/2102.04306",
+      "file": "literature\\pdfs\\18_transunet_2021.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "19_unetr_2021",
+      "title": "UNETR: Transformers for 3D Medical Image Segmentation",
+      "url": "https://arxiv.org/pdf/2103.10504",
+      "file": "literature\\pdfs\\19_unetr_2021.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "20_sparsemax_2016",
+      "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+      "url": "https://arxiv.org/pdf/1602.02068",
+      "file": "literature\\pdfs\\20_sparsemax_2016.pdf",
+      "status": "downloaded"
+    },
+    {
+      "id": "21_entmax_2019",
+      "title": "Sparse Sequence-to-Sequence Models",
+      "url": "https://arxiv.org/pdf/1905.05702",
+      "file": "literature\\pdfs\\21_entmax_2019.pdf",
+      "status": "downloaded"
+    }
+  ],
+  "reference_only": [
+    {
+      "id": "01_basser_dti_1994",
+      "title": "MR diffusion tensor spectroscopy and imaging",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1016/S0006-3495(94)80775-1"
+    },
+    {
+      "id": "02_lebihan_dti_2001",
+      "title": "Diffusion tensor imaging: concepts and applications",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1002/jmri.1076"
+    },
+    {
+      "id": "03_mori_tracking_2002",
+      "title": "Fiber tracking: principles and strategies",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1002/nbm.781"
+    },
+    {
+      "id": "04_fischl_segmentation_2002",
+      "title": "Whole brain segmentation: automated labeling of neuroanatomical structures",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1016/S0896-6273(02)00569-X"
+    },
+    {
+      "id": "05_fischl_parcellation_2004",
+      "title": "Automatically parcellating the human cerebral cortex",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1093/cercor/bhg087"
+    },
+    {
+      "id": "06_desikan_atlas_2006",
+      "title": "An automated labeling system for subdividing the human cerebral cortex",
+      "reason": "Publisher DOI page; no public PDF URL was assumed.",
+      "link": "https://doi.org/10.1016/j.neuroimage.2006.01.021"
+    },
+    {
+      "id": "14_ddparcel_2024",
+      "title": "DDParcel: Deep Learning Anatomical Brain Parcellation From Diffusion MRI",
+      "reason": "IEEE article page; no open PDF URL was assumed.",
+      "link": "https://doi.org/10.1109/TMI.2023.3331691"
+    },
+    {
+      "id": "22_hcp",
+      "title": "Human Connectome Project background",
+      "reason": "Dataset/project reference rather than one required PDF.",
+      "link": "https://www.humanconnectome.org/"
+    },
+    {
+      "id": "23_cnp_ds000030",
+      "title": "Consortium for Neuropsychiatric Phenomics / OpenNeuro ds000030",
+      "reason": "Dataset/project reference rather than one required PDF.",
+      "link": "https://openneuro.org/datasets/ds000030"
+    },
+    {
+      "id": "24_ppmi",
+      "title": "Parkinson's Progression Markers Initiative",
+      "reason": "Dataset/project reference rather than one required PDF.",
+      "link": "https://www.ppmi-info.org/"
+    }
+  ]
+}
